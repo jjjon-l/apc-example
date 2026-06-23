@@ -22,7 +22,7 @@
   --navy-deep:#152449;    /* darker navy for depth */
   --accent:#C8102E;       /* true red accent, used only on light sections */
   --muted:#5B6478;        /* secondary text */
-  --line:#E5E0D4;         /* hairline rules */
+  --line:#EAE4D8;         /* hairline rules */
   --card:#FFFFFF;         /* card surface */
   --maxw:1080px;
 }
@@ -35,10 +35,12 @@ body{
   color:var(--ink);
   font-family:"Newsreader",Georgia,serif;
   font-size:19px;
-  line-height:1.65;
+  line-height:1.6;
+  text-wrap:pretty;
   -webkit-font-smoothing:antialiased;
 }
 h1,h2,h3,.display,.eyebrow{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;}
+h1,h2,h3,.lede,.big{text-wrap:balance;}
 a{color:var(--navy);text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%;display:block}
@@ -52,9 +54,13 @@ img{max-width:100%;display:block}
   backdrop-filter:saturate(140%) blur(8px);
   border-bottom:1px solid var(--line);
 }
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;min-height:58px;padding-top:11px;padding-bottom:11px}
+.brand-block{display:flex;flex-direction:column;gap:3px}
 .brandmark{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.01em;font-size:16px}
 .brandmark span{color:var(--accent)}
+.brand-contact{font-size:12.5px;color:var(--muted);letter-spacing:.01em}
+.brand-contact a{color:var(--muted)}
+.brand-contact a:hover{color:var(--navy);text-decoration:none}
 .topnote{font-size:13px;color:var(--muted);letter-spacing:.02em}
 
 /* ---------- eyebrow ---------- */
@@ -65,10 +71,10 @@ img{max-width:100%;display:block}
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block}
 
 /* ---------- hero ---------- */
-.hero{padding:88px 0 64px;border-bottom:1px solid var(--line)}
+.hero{padding:96px 0 72px;border-bottom:1px solid var(--line)}
 .hero h1{
-  font-weight:800;letter-spacing:-.025em;line-height:.98;
-  font-size:clamp(52px,11vw,108px);margin:0 0 26px;
+  font-weight:800;letter-spacing:-.02em;line-height:1.04;
+  font-size:clamp(34px,5vw,54px);margin:0 0 22px;
 }
 .hero h1 .stroke{color:var(--navy)}
 .lede{font-size:clamp(20px,2.4vw,25px);max-width:30ch;color:var(--ink);margin:0 0 34px}
@@ -84,8 +90,8 @@ img{max-width:100%;display:block}
 .sep{color:var(--line);margin:0 12px}
 
 /* ---------- generic section ---------- */
-section{padding:74px 0}
-.section-head{max-width:62ch;margin-bottom:44px}
+section{padding:84px 0}
+.section-head{max-width:62ch;margin-bottom:52px}
 .section-head h2{font-weight:800;letter-spacing:-.02em;font-size:clamp(30px,4.4vw,44px);line-height:1.04;margin:0 0 14px}
 .section-head p{color:var(--muted);margin:0;font-size:20px}
 
@@ -96,7 +102,7 @@ section{padding:74px 0}
 .band h2{color:#fff}
 .band .big{
   font-family:"Newsreader",serif;font-size:clamp(24px,3.4vw,34px);line-height:1.4;
-  max-width:30ch;margin:0;font-weight:400;
+  max-width:46ch;margin:0;font-weight:400;
 }
 .band .big em{color:#A9C2E8;font-style:italic}
 
@@ -116,7 +122,7 @@ section{padding:74px 0}
 .stop p{margin:0;max-width:58ch}
 
 /* ---------- crisis feature ---------- */
-.feature{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:clamp(28px,5vw,56px);position:relative;overflow:hidden}
+.feature{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(30px,5vw,60px);position:relative;overflow:hidden}
 .feature::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:var(--accent);opacity:.06}
 .feature .eyebrow{margin-bottom:14px}
 .feature h2{font-weight:800;letter-spacing:-.02em;font-size:clamp(28px,4vw,40px);margin:0 0 18px}
@@ -125,14 +131,14 @@ section{padding:74px 0}
 .pull{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;color:var(--navy);font-size:18px}
 
 /* ---------- work grid ---------- */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .card{
-  background:var(--card);border:1px solid var(--line);border-radius:4px;padding:26px 26px 24px;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;padding:30px 30px 28px;
   display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
 }
-.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px -18px rgba(30,51,100,.40);border-color:var(--navy)}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 44px -24px rgba(30,51,100,.30);border-color:var(--navy)}
 .tag{
-  font-family:"Bricolage Grotesque",sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  font-family:"Bricolage Grotesque",sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
   color:var(--navy);background:rgba(30,51,100,.08);border-radius:100px;padding:5px 11px;align-self:flex-start;margin-bottom:14px;
 }
 .card h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:21px;letter-spacing:-.01em;margin:0 0 8px;color:var(--ink)}
@@ -143,11 +149,13 @@ section{padding:74px 0}
 .card.placeholder .go{color:var(--muted)}
 
 /* ---------- writing samples ---------- */
-.samples{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.sample{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:26px}
-.sample .kind{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
-.sample .meta{font-size:13.5px;color:var(--muted);font-style:italic;margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:14px}
-.sample p{margin:0;font-size:16.5px}
+.samples{display:flex;flex-direction:column}
+.sample{display:grid;grid-template-columns:240px 1fr;gap:52px;padding:34px 0;border-top:1px solid var(--line);align-items:start}
+.sample:last-child{border-bottom:1px solid var(--line)}
+.sample .kind{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.sample .meta{font-size:13.5px;color:var(--muted);font-style:italic}
+.sample-body p{margin:0;font-size:17px}
+.sample-body p + p{margin-top:14px}
 
 /* ---------- close ---------- */
 .close{background:var(--navy-deep);color:#EAEFF7;text-align:left}
@@ -162,11 +170,25 @@ section{padding:74px 0}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 
+/* ---------- two-column layouts (balance the page) ---------- */
+.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start}
+.hero-main .lede{max-width:42ch}
+.hero-side .note-to{margin:0}
+.hero-side .contactline{margin-top:24px;line-height:2.1}
+.band-grid{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start}
+.road-grid{display:grid;grid-template-columns:300px 1fr;gap:60px;align-items:start}
+.road-grid .section-head{margin-bottom:0}
+.close-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+@media (max-width:860px){
+  .hero-grid,.band-grid,.road-grid,.close-grid{grid-template-columns:1fr;gap:30px}
+  .hero-side .note-to{margin-top:8px}
+}
+
 /* ---------- responsive ---------- */
 @media (max-width:780px){
   body{font-size:18px}
-  .grid{grid-template-columns:1fr}
-  .samples{grid-template-columns:1fr}
+  .samples,.grid{grid-template-columns:1fr}
+  .sample{grid-template-columns:1fr;gap:14px;padding:26px 0}
   .topnote{display:none}
   section{padding:56px 0}
   .hero{padding:60px 0 48px}
@@ -183,32 +205,33 @@ section{padding:74px 0}
 
 <div class="topbar">
   <div class="wrap">
-    <div class="brandmark">Jonathan Lass <span>/</span> for APC</div>
+    <div class="brand-block">
+      <div class="brandmark">Jonathan Lass <span>/</span> for APC</div>
+      <div class="brand-contact"><a href="mailto:jonathan.lass@me.com">jonathan.lass@me.com</a> &middot; 401-556-9349 &middot; <a href="https://linkedin.com/in/jonathanlass">linkedin.com/in/jonathanlass</a></div>
+    </div>
     <div class="topnote">Work samples for Scott &amp; Jennifer</div>
   </div>
 </div>
 
 <!-- ============ HERO ============ -->
 <header class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Work samples &middot; Chief Communications Officer</p>
-    <h1>Keeper of <span class="stroke">the voice.</span></h1>
-    <p class="lede">For a decade I have run communications for member organizations, making sure the right message reaches the right people at the right moment.</p>
-    <div class="note-to reveal">
-      <strong>Scott, Jennifer:</strong> you asked twelve of us for work samples by Thursday at five. Mine are below, built as a page rather than attached as a PDF, on the theory that a communications hire should show, not just tell. (And yes, I read all the instructions.)
+  <div class="wrap hero-grid">
+    <div class="hero-main">
+      <p class="eyebrow">Work samples &middot; Chief Communications Officer</p>
+      <h1>The right message, to the right people, on time.</h1>
+      <p class="lede">For a decade I have run communications for member organizations, mostly REALTOR&reg; associations, keeping members at the center of every message.</p>
     </div>
-    <p class="contactline">
-      Jonathan Lass <span class="sep">&middot;</span>
-      <a href="mailto:jonathan.lass@me.com">jonathan.lass@me.com</a> <span class="sep">&middot;</span>
-      401-556-9349 <span class="sep">&middot;</span>
-      <a href="https://linkedin.com/in/jonathanlass">linkedin.com/in/jonathanlass</a>
-    </p>
+    <aside class="hero-side reveal">
+      <div class="note-to">
+        <strong>Scott, Jennifer:</strong> you asked twelve of us for work samples by Thursday at five. Mine are below, built as a page rather than attached as a PDF, on the theory that a communications hire should show, not just tell. (And yes, I read all the instructions.)
+      </div>
+    </aside>
   </div>
 </header>
 
 <!-- ============ THROUGHLINE BAND ============ -->
 <section class="band reveal">
-  <div class="wrap">
+  <div class="wrap band-grid">
     <p class="eyebrow">The throughline</p>
     <p class="big">Nearly my whole career has been spent inside membership organizations, mostly REALTOR&reg; trade associations, doing the same core job: <em>holding the voice steady and keeping members at the center of it.</em></p>
   </div>
@@ -216,7 +239,7 @@ section{padding:74px 0}
 
 <!-- ============ TIMELINE ============ -->
 <section>
-  <div class="wrap">
+  <div class="wrap road-grid">
     <div class="section-head">
       <h2>The road here</h2>
       <p>Four stops, one constant: communications in service of members.</p>
@@ -271,6 +294,7 @@ section{padding:74px 0}
       <p>In 2019, Newsday published &ldquo;Long Island Divided,&rdquo; a three-year investigation into housing discrimination across Long Island's real estate industry. I was on the communications team at the Long Island Board of REALTORS&reg; through the difficult public reckoning that followed.</p>
       <p>It remains the clearest lesson of my career in what high-stakes communication actually asks of you: <span class="pull">accuracy over speed, accountability over spin, and steady, honest messaging</span> to members and the public at a moment when saying nothing would have been the easier path.</p>
       <p>That experience is a large part of why I think about a communications role the way your posting describes it: the right message, to the right audience, at the right time, told in a voice people can trust.</p>
+      <p style="margin-top:18px;font-family:'Bricolage Grotesque',sans-serif;font-size:14px"><a href="https://projects.newsday.com/long-island/real-estate-investigation-videos/" target="_blank" rel="noopener">See Newsday&rsquo;s investigation &rarr;</a></p>
     </div>
   </div>
 </section>
@@ -292,47 +316,38 @@ section{padding:74px 0}
         <span class="go">View the site <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- TODO: replace href with the live SAR Government Affairs / Election Endorsements URL -->
-      <a class="card reveal placeholder" href="#" data-edit="ADD LINK">
-        <span class="tag">Web &middot; Members &amp; public</span>
-        <h3>Government Affairs &amp; Endorsements</h3>
-        <p>Rebuilt advocacy and election-endorsement pages for the Sacramento Association of REALTORS&reg;, organizing complex policy and candidate information for members and the public.</p>
-        <span class="go">Add link <span class="arr">&rarr;</span></span>
+      <a class="card reveal" href="https://youtu.be/yU_g6rDh1N0" target="_blank" rel="noopener">
+        <span class="tag">Media relations &middot; Local TV</span>
+        <h3>Earned media coverage</h3>
+        <p>A segment with Sacramento&rsquo;s KCRA 3 on our Homebuyer Expo, focused on the down payment assistance grants we awarded to first-time buyers, earned television coverage that put the program in front of the families it was built to reach.</p>
+        <span class="go">Watch <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- TODO: replace href with a live event page (Speakeasy / Laughs & Leis / Homebuyer Expo) -->
-      <a class="card reveal placeholder" href="#" data-edit="ADD LINK">
-        <span class="tag">Design + comms &middot; Members</span>
-        <h3>Event campaigns</h3>
-        <p>End-to-end campaigns for member events and fundraisers, including a 500+ attendee Homebuyer Expo and themed fundraisers, from concept and design through promotion and follow-up.</p>
-        <span class="go">Add link <span class="arr">&rarr;</span></span>
+      <a class="card reveal" href="https://sacrealtor.org/laughs26/" target="_blank" rel="noopener">
+        <span class="tag">Event landing page &middot; Members &amp; community</span>
+        <h3>Laughs for a Cause</h3>
+        <p>An event landing page I designed and built for a member comedy fundraiser: copy, design, and registration in a lighter, on-brand voice.</p>
+        <span class="go">View the page <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- TODO: replace href with a link to a PR / press release or media-resources page -->
-      <a class="card reveal placeholder" href="#" data-edit="ADD LINK">
-        <span class="tag">Public relations &middot; Press</span>
-        <h3>Press &amp; media</h3>
-        <p>Press releases and media-facing communications produced for the association, including housing-market and member-advocacy stories.</p>
-        <span class="go">Add link <span class="arr">&rarr;</span></span>
+      <a class="card reveal" href="https://sacrealtor.org/sacramento-housing-leaders-launch-down-payment-assistance-initiative-to-support-first-time-homebuyers/" target="_blank" rel="noopener">
+        <span class="tag">Press release &middot; Media &amp; public</span>
+        <h3>Down payment assistance launch</h3>
+        <p>A &ldquo;for immediate release&rdquo; announcing a down payment assistance initiative for first-time homebuyers, written for media pickup and public clarity.</p>
+        <span class="go">Read the release <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- TODO: replace href with a link to a design portfolio / graphics folder (Drive, Behance, image gallery) -->
-      <a class="card reveal placeholder" href="#" data-edit="ADD LINK">
-        <span class="tag">Graphic design &middot; Multi-channel</span>
-        <h3>Designed graphics</h3>
-        <p>A selection of brand-consistent graphics, social creative, and collateral designed in Adobe Photoshop and Canva. Not a design job per se, but the eye helps.</p>
-        <span class="go">Add link <span class="arr">&rarr;</span></span>
-      </a>
-
-      <!-- TODO: replace href with the Weekly Docket newsletter (web archive or sample) -->
-      <a class="card reveal placeholder" href="#" data-edit="ADD LINK">
+      <!-- Weekly Docket newsletter, exported from Outlook to a standalone page -->
+      <a class="card reveal" href="docket.html" target="_blank" rel="noopener">
         <span class="tag">Email / newsletter &middot; Members</span>
         <h3>Weekly member newsletter</h3>
-        <p>The association's weekly newsletter, rebuilt for reliable rendering across email clients and a streamlined production workflow.</p>
-        <span class="go">Add link <span class="arr">&rarr;</span></span>
+        <p>The association&rsquo;s weekly Docket, rebuilt for reliable rendering across email clients with a streamlined production workflow. This is a live, sent edition.</p>
+        <span class="go">Open the newsletter <span class="arr">&rarr;</span></span>
       </a>
 
     </div>
+
+    <p style="max-width:66ch;margin-top:32px;color:var(--muted);font-size:16px;font-style:italic">On design: the graphics, layouts, and email templates across these pages, our website, the landing pages, and the weekly Docket, are produced in-house by me and one staffer. Not a design department, just an eye for it and the willingness to do the work.</p>
   </div>
 </section>
 
@@ -348,21 +363,36 @@ section{padding:74px 0}
     <div class="samples">
 
       <div class="sample reveal">
-        <div class="kind">Straight</div>
-        <div class="meta">Channel: [newsletter / member email] &middot; Audience: [members]</div>
-        <p>[ Paste a short, clean, informational sample here, a market update, a policy summary, or a member announcement. Keep it tight. ]</p>
+        <div class="sample-label">
+          <div class="kind">Straight</div>
+          <div class="meta">Channel: Press release &middot; Audience: Media &amp; public</div>
+        </div>
+        <div class="sample-body">
+          <p>FOR IMMEDIATE RELEASE. The Sacramento Association of REALTORS&reg;, in partnership with the National Hispanic Organization of Real Estate Associates and the Asian Real Estate Association of America, has launched a regional Down Payment Assistance Grant Program for first-time homebuyers, with an initial $75,000 in funding secured through the partnership.</p>
+          <p style="margin-top:14px;font-family:'Bricolage Grotesque',sans-serif;font-size:14px"><a href="https://sacrealtor.org/sacramento-housing-leaders-launch-down-payment-assistance-initiative-to-support-first-time-homebuyers/" target="_blank" rel="noopener">Read the full release &rarr;</a></p>
+        </div>
       </div>
 
       <div class="sample reveal">
-        <div class="kind">With a wink</div>
-        <div class="meta">Channel: [social / event landing page] &middot; Audience: [members &amp; community]</div>
-        <p>[ Paste your cleverest short piece here, an event promo or a social post with personality. Speakeasy or Laughs &amp; Leis would shine. ]</p>
+        <div class="sample-label">
+          <div class="kind">With a wink</div>
+          <div class="meta">Channel: Event landing page &middot; Audience: Members &amp; community</div>
+        </div>
+        <div class="sample-body">
+          <p>Aloha. One of the most anticipated nights of the year is back: an evening of clean comedy, island vibes, and giving back. Open to all, and every laugh helps send local high school seniors to college. Grab your tickets and join us for a night you will not want to miss.</p>
+          <p style="margin-top:14px;font-family:'Bricolage Grotesque',sans-serif;font-size:14px"><a href="https://sacrealtor.org/laughs26/" target="_blank" rel="noopener">View the page &rarr;</a></p>
+        </div>
       </div>
 
       <div class="sample reveal">
-        <div class="kind">Persuasive</div>
-        <div class="meta">Channel: [email / web] &middot; Audience: [members / donors]</div>
-        <p>[ Paste a persuasive or fundraising sample here, a sponsorship ask, a fundraiser appeal, or an advocacy call to action. ]</p>
+        <div class="sample-label">
+          <div class="kind">Persuasive</div>
+          <div class="meta">Channel: Member email appeal &middot; Audience: REALTOR&reg; members</div>
+        </div>
+        <div class="sample-body">
+          <p>Every law that touches how you list, sell, and serve your clients starts as someone&rsquo;s idea in a committee room. The REALTOR&reg; Action Fund is how we make sure REALTORS&reg; are in that room. Your contribution, large or small, funds the advocacy that protects private property rights, pushes back on anti-housing policy, and keeps the path to homeownership open for the families you serve. It is one of the most direct investments you can make in your business and your community. Chip in today, and stand with the thousands of members who already have.</p>
+          <p style="margin-top:14px;font-family:'Bricolage Grotesque',sans-serif;font-size:14px"><a href="https://sacrealtor.org/realtor-action-fund/" target="_blank" rel="noopener">About the Action Fund &rarr;</a></p>
+        </div>
       </div>
 
     </div>
@@ -371,17 +401,19 @@ section{padding:74px 0}
 
 <!-- ============ CLOSE ============ -->
 <section class="close">
-  <div class="wrap">
+  <div class="wrap close-grid">
     <h2>Members at the center. Voice on time.</h2>
-    <p>That is the throughline, and it is the job as you have described it. I would genuinely enjoy doing it for APC.</p>
-    <p>Thanks for reading all the way down, and for an unusually human job posting.</p>
-    <div class="sign">&mdash; Jonathan</div>
-    <p class="contactline">
-      <a href="mailto:jonathan.lass@me.com">jonathan.lass@me.com</a> <span class="sep">&middot;</span>
-      401-556-9349 <span class="sep">&middot;</span>
-      <a href="https://linkedin.com/in/jonathanlass">linkedin.com/in/jonathanlass</a>
-    </p>
-    <p class="wink">Built and shipped by Thursday, 5pm ET. The trains run on time.</p>
+    <div class="close-body">
+      <p>That is the throughline, and it is the job as you have described it. I would genuinely enjoy doing it for APC.</p>
+      <p>Thanks for reading all the way down, and for an unusually human job posting.</p>
+      <div class="sign">Jonathan</div>
+      <p class="contactline">
+        <a href="mailto:jonathan.lass@me.com">jonathan.lass@me.com</a> <span class="sep">&middot;</span>
+        401-556-9349 <span class="sep">&middot;</span>
+        <a href="https://linkedin.com/in/jonathanlass">linkedin.com/in/jonathanlass</a>
+      </p>
+      <p class="wink">Built and shipped by Thursday, 5pm ET. The trains run on time.</p>
+    </div>
   </div>
 </section>
 
