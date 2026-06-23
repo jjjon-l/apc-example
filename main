@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   APC BRAND COLORS
+   APC BRAND COLORS:
    Primary navy #1E3364 confirmed from a4pc.org (header/footer).
    Accent is a warm complement to the navy; swap it if APC has a
    specific secondary color you'd rather use.
